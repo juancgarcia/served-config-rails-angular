@@ -1,12 +1,12 @@
 /* global angular */
 
 angular.module('ex-app', [])
-  .factory('configFactory', configFactory)
   .run(['$http', 'configFactory', runBlock])
 
 function runBlock ($http, configFactory) {
   console.log('I run at startup!')
-  const url = 'http://localhost:3000/config'
+  console.log('the secret is: ', configFactory.secret)
+  const url = 'http://localhost:3000/configs'
   $http({
     method: 'GET',
     url: url
@@ -15,10 +15,4 @@ function runBlock ($http, configFactory) {
   }, function (response) {
     console.log('didnt do it')
   })
-}
-
-function configFactory () {
-  return {
-    config: {}
-  }
 }
