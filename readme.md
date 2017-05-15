@@ -6,14 +6,30 @@ A method to avoid storing some front-end configurations in your version control*
 
 #### Setup
 
+##### Rails
 ```bash
 cd rails-server
 
 rails db:drop db:create
 
-export APIKEY="YOUR_API_KEY_HERE"
+export APIKEY="superSECRETkeyHERE"
 
 rails s
 ```
+
+##### Angular
+```bash
+npm install -g http-server
+
+cd angular-frontend
+
+hs
+```
+
+#### Running
+
+Launch a browser to `http://localhost:8080/` and open the js console to see the output.
+
+##
 
 (* to be clear, this does not provide a means to _hide_ your configuration from the user of the browser. The `configs` http request and resultant data are available to any moderately determined user)

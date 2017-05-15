@@ -5,13 +5,14 @@ angular.module('ex-app', [])
 
 function runBlock ($http, configFactory) {
   console.log('I run at startup!')
-  console.log('the secret is: ', configFactory.secret)
+  console.log('the default secret is: ', configFactory.secret)
   const url = 'http://localhost:3000/configs'
   $http({
     method: 'GET',
     url: url
   }).then(function (response) {
     console.log('did it')
+    console.log("The server secret is", response.data)
   }, function (response) {
     console.log('didnt do it')
   })
